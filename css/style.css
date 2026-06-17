@@ -1,1 +1,100 @@
 /* LuxeVoyage Kenya — Custom Styles */
+
+/* === COLOR TOKENS === */
+:root {
+  --lv-navy: #0B1F3A;
+  --lv-gold: #C9A84C;
+  --lv-gold-light: #e8c76a;
+  --lv-white: #FFFFFF;
+  --lv-charcoal: #2C2C2C;
+  --lv-light: #F5F5F0;
+}
+
+/* === TYPOGRAPHY === */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--lv-charcoal);
+  background-color: var(--lv-white);
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+}
+
+/* === NAVBAR === */
+.navbar-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--lv-gold) !important;
+}
+
+.nav-link:hover {
+  color: var(--lv-gold) !important;
+}
+
+/* === HERO SECTIONS === */
+.bg-light {
+  background-color: var(--lv-light) !important;
+}
+
+section h1 {
+  color: var(--lv-navy);
+}
+
+/* === BUTTONS === */
+.btn-warning {
+  background-color: var(--lv-gold);
+  border-color: var(--lv-gold);
+  color: var(--lv-white);
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+.btn-warning:hover {
+  background-color: var(--lv-gold-light);
+  border-color: var(--lv-gold-light);
+  color: var(--lv-navy);
+}
+
+.btn-outline-warning {
+  border-color: var(--lv-gold);
+  color: var(--lv-gold);
+}
+
+.btn-outline-warning:hover {
+  background-color: var(--lv-gold);
+  color: var(--lv-white);
+}
+
+/* === CARDS === */
+.card {
+  border: 1px solid #e8e8e4;
+  border-radius: 4px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(11, 31, 58, 0.12);
+}
+
+/* === FOOTER === */
+footer {
+  background-color: var(--lv-navy) !important;
+}
+
+footer a:hover {
+  color: var(--lv-gold) !important;
+}
+
+/* === SECTIONS === */
+section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
