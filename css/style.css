@@ -141,6 +141,18 @@ h3, h4, h5 {
   box-shadow: 0 8px 24px rgba(10, 22, 40, 0.12);
 }
 
+.card-minimal {
+  border: none;
+  background: transparent;
+  padding: 1rem 0;
+}
+
+.card-minimal h5 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.3rem;
+  color: var(--lv-ink);
+}
+
 /* === SECTIONS === */
 section {
   padding-top: 4rem;
