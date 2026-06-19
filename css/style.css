@@ -1,32 +1,99 @@
 /* LuxeVoyage Kenya — Custom Styles */
 
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Inter:wght@400;500;600&display=swap');
+
 /* === COLOR TOKENS === */
 :root {
-  --lv-navy: #0B1F3A;
-  --lv-gold: #C9A84C;
-  --lv-gold-light: #e8c76a;
+  --lv-ink: #0A1628;
+  --lv-gold: #D4A24C;
+  --lv-terracotta: #A8553A;
+  --lv-cream: #F7F3EC;
   --lv-white: #FFFFFF;
-  --lv-charcoal: #2C2C2C;
-  --lv-light: #F5F5F0;
+  --lv-charcoal: #3A3A38;
 }
 
 /* === TYPOGRAPHY === */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500&display=swap');
-
-body {
+body, p, .nav-link, .btn {
   font-family: 'Inter', sans-serif;
   color: var(--lv-charcoal);
   background-color: var(--lv-white);
 }
 
-h1, h2, h3, h4, h5 {
-  font-family: 'Cormorant Garamond', serif;
+h1, h2, .display-heading {
+  font-family: 'Fraunces', serif;
   font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+}
+
+h3, h4, h5 {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+}
+
+.eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--lv-gold);
+}
+
+/* === HERO === */
+.hero-full {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  background: url('https://images.pexels.com/photos/247431/pexels-photo-247431.jpeg?w=1600') center/cover no-repeat;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10,22,40,0.55) 0%, rgba(10,22,40,0.85) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  color: var(--lv-white);
+  max-width: 700px;
+  padding: 0 2rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  color: var(--lv-white);
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: var(--lv-cream);
+  margin-bottom: 2rem;
+}
+
+.btn-hero {
+  background: var(--lv-gold);
+  color: var(--lv-ink);
+  padding: 0.85rem 2.5rem;
+  border-radius: 2px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  border: none;
+}
+
+.btn-hero:hover {
+  background: var(--lv-white);
+  color: var(--lv-ink);
 }
 
 /* === NAVBAR === */
 .navbar-brand {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Fraunces', serif;
   font-size: 1.4rem;
   font-weight: 700;
   letter-spacing: 0.05em;
@@ -37,29 +104,19 @@ h1, h2, h3, h4, h5 {
   color: var(--lv-gold) !important;
 }
 
-/* === HERO SECTIONS === */
-.bg-light {
-  background-color: var(--lv-light) !important;
-}
-
-section h1 {
-  color: var(--lv-navy);
-}
-
 /* === BUTTONS === */
 .btn-warning {
   background-color: var(--lv-gold);
   border-color: var(--lv-gold);
   color: var(--lv-white);
-  font-family: 'Inter', sans-serif;
   font-weight: 500;
   letter-spacing: 0.03em;
 }
 
 .btn-warning:hover {
-  background-color: var(--lv-gold-light);
-  border-color: var(--lv-gold-light);
-  color: var(--lv-navy);
+  background-color: var(--lv-terracotta);
+  border-color: var(--lv-terracotta);
+  color: var(--lv-white);
 }
 
 .btn-outline-warning {
@@ -81,20 +138,20 @@ section h1 {
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(11, 31, 58, 0.12);
-}
-
-/* === FOOTER === */
-footer {
-  background-color: var(--lv-navy) !important;
-}
-
-footer a:hover {
-  color: var(--lv-gold) !important;
+  box-shadow: 0 8px 24px rgba(10, 22, 40, 0.12);
 }
 
 /* === SECTIONS === */
 section {
   padding-top: 4rem;
   padding-bottom: 4rem;
+}
+
+/* === FOOTER === */
+footer {
+  background-color: var(--lv-ink) !important;
+}
+
+footer a:hover {
+  color: var(--lv-gold) !important;
 }
