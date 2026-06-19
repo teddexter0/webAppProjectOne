@@ -82,3 +82,19 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
+
+// === SCROLL REVEAL ===
+document.addEventListener('DOMContentLoaded', function () {
+  const revealEls = document.querySelectorAll('.reveal-on-scroll');
+  if (!revealEls.length) return;
+
+  const observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  revealEls.forEach(function (el) { observer.observe(el); });
+});
