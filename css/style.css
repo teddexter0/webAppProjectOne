@@ -267,3 +267,13 @@ body.dark-mode footer,
 body.dark-mode .navbar {
   background-color: #050B14 !important;
 }
+
+#gallery-filters .filter-btn {
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 576px) {
+  .hero-title { font-size: 2.2rem; }
+  .hero-full { min-height: 70vh; }
+  .eyebrow, .hero-subtitle { padding: 0 1rem; }
+}
