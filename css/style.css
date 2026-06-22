@@ -2,6 +2,12 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Inter:wght@400;500;600&display=swap');
 
+html { scroll-behavior: smooth; }
+a:focus, button:focus, input:focus, textarea:focus {
+  outline: 2px solid var(--lv-gold);
+  outline-offset: 2px;
+}
+
 /* === COLOR TOKENS === */
 :root {
   --lv-ink: #0A1628;
