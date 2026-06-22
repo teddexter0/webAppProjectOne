@@ -238,3 +238,26 @@ footer a:hover {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* === DARK MODE === */
+body.dark-mode {
+  background-color: var(--lv-ink);
+  color: var(--lv-cream);
+}
+body.dark-mode .card,
+body.dark-mode .card-minimal {
+  background-color: #142238;
+  color: var(--lv-cream);
+}
+body.dark-mode .bg-light {
+  background-color: #142238 !important;
+}
+body.dark-mode .card-minimal h5,
+body.dark-mode h2,
+body.dark-mode section h1 {
+  color: var(--lv-cream);
+}
+body.dark-mode footer,
+body.dark-mode .navbar {
+  background-color: #050B14 !important;
+}

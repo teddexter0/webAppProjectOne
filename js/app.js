@@ -98,3 +98,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
   revealEls.forEach(function (el) { observer.observe(el); });
 });
+
+// === DARK MODE TOGGLE ===
+document.addEventListener('DOMContentLoaded', function () {
+  const toggle = document.getElementById('darkModeToggle');
+  if (!toggle) return;
+
+  const saved = localStorage.getItem('lv-theme');
+  if (saved === 'dark') {
+    document.body.classList.add('dark-mode');
+    toggle.textContent = '☀️';
+  }
+
+  toggle.addEventListener('click', function () {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    toggle.textContent = isDark ? '☀️' : '🌙';
+    localStorage.setItem('lv-theme', isDark ? 'dark' : 'light');
+  });
+});
