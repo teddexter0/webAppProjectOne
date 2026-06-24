@@ -117,3 +117,17 @@ document.addEventListener('DOMContentLoaded', function () {
     localStorage.setItem('lv-theme', isDark ? 'dark' : 'light');
   });
 });
+
+// === BACK TO TOP ===
+document.addEventListener('DOMContentLoaded', function () {
+  const btn = document.getElementById('backToTop');
+  if (!btn) return;
+
+  window.addEventListener('scroll', function () {
+    btn.style.display = window.scrollY > 400 ? 'block' : 'none';
+  });
+
+  btn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
