@@ -168,25 +168,37 @@ document.addEventListener('DOMContentLoaded', function () {
   startAuto();
 });
 
-// === PARALLAX SCROLL EFFECT ===
+// === PARALLAX + 3D BUBBLY SCROLL EFFECT ===
 document.addEventListener('DOMContentLoaded', function () {
   const parallaxSections = document.querySelectorAll('.parallax-section');
-  if (!parallaxSections.length) return;
+  const scroll3dItems = document.querySelectorAll('.scroll-3d-item');
+  if (!parallaxSections.length && !scroll3dItems.length) return;
 
-  function updateParallax() {
+  function updateScrollEffects() {
+    const winH = window.innerHeight;
+    const midY = winH / 2;
+
     parallaxSections.forEach(function (section) {
       const rect = section.getBoundingClientRect();
-      const winH = window.innerHeight;
       if (rect.bottom < 0 || rect.top > winH) return;
-
       const scrollProgress = (rect.top + rect.height / 2) / winH;
-      const speed = 0.35;
-      const yOffset = (scrollProgress - 0.5) * speed * 100;
+      const yOffset = (scrollProgress - 0.5) * 0.35 * 100;
       section.style.backgroundPositionY = 'calc(50% + ' + yOffset + 'px)';
     });
-    requestAnimationFrame(updateParallax);
+
+    scroll3dItems.forEach(function (item) {
+      const rect = item.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > winH) return;
+      const itemCenter = rect.top + rect.height / 2;
+      const distanceFromCenter = (itemCenter - midY) / winH;
+      const zTrans = distanceFromCenter * -120;
+      const rotX = distanceFromCenter * -8;
+      item.style.transform = 'translateZ(' + zTrans + 'px) rotateX(' + rotX + 'deg)';
+    });
+
+    requestAnimationFrame(updateScrollEffects);
   }
-  requestAnimationFrame(updateParallax);
+  requestAnimationFrame(updateScrollEffects);
 });
 
 // === BACK TO TOP ===

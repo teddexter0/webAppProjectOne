@@ -312,21 +312,30 @@ section {
   position: relative;
   z-index: 1;
   color: var(--lv-white);
-  max-width: 700px;
+  max-width: 750px;
   padding: 0 2rem;
+}
+
+.parallax-content .eyebrow {
+  color: var(--lv-gold);
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-shadow: 0 0 20px rgba(212, 162, 76, 0.3);
 }
 
 .parallax-content h2 {
   font-family: 'Fraunces', serif;
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
   color: var(--lv-white);
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
 }
 
 .parallax-content p {
-  font-size: 1.15rem;
-  color: var(--lv-cream);
-  opacity: 0.9;
+  font-size: 1.2rem;
+  color: var(--lv-white);
+  opacity: 0.92;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }
 
 @media (max-width: 768px) {
@@ -391,6 +400,22 @@ body.dark-mode .social-link {
 .reveal-on-scroll.revealed {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* === 3D BUBBLY SCROLL EFFECT === */
+.scroll-3d-wrapper {
+  perspective: 800px;
+  transform-style: preserve-3d;
+}
+
+.scroll-3d-item {
+  transition: transform 0.1s ease-out;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-3d-item { transform: none !important; }
 }
 
 /* === DARK MODE === */
