@@ -118,6 +118,77 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+// === HERO SLIDESHOW ===
+document.addEventListener('DOMContentLoaded', function () {
+  const slides = document.querySelectorAll('.hero-slide');
+  const dotsContainer = document.getElementById('heroDots');
+  if (!slides.length || !dotsContainer) return;
+
+  let current = 0;
+  let autoInterval;
+
+  slides.forEach(function (_, i) {
+    const dot = document.createElement('button');
+    dot.className = 'hero-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+    dot.addEventListener('click', function () { goTo(i); });
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = dotsContainer.querySelectorAll('.hero-dot');
+
+  function goTo(index) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = index;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  function next() { goTo((current + 1) % slides.length); }
+  function prev() { goTo((current - 1 + slides.length) % slides.length); }
+
+  function startAuto() {
+    stopAuto();
+    autoInterval = setInterval(next, 6000);
+  }
+  function stopAuto() { clearInterval(autoInterval); }
+
+  document.querySelector('.hero-arrow-next').addEventListener('click', function () { next(); startAuto(); });
+  document.querySelector('.hero-arrow-prev').addEventListener('click', function () { prev(); startAuto(); });
+
+  const hero = document.getElementById('heroCarousel');
+  hero.addEventListener('mouseenter', stopAuto);
+  hero.addEventListener('mouseleave', startAuto);
+
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) stopAuto(); else startAuto();
+  });
+
+  startAuto();
+});
+
+// === PARALLAX SCROLL EFFECT ===
+document.addEventListener('DOMContentLoaded', function () {
+  const parallaxSections = document.querySelectorAll('.parallax-section');
+  if (!parallaxSections.length) return;
+
+  function updateParallax() {
+    parallaxSections.forEach(function (section) {
+      const rect = section.getBoundingClientRect();
+      const winH = window.innerHeight;
+      if (rect.bottom < 0 || rect.top > winH) return;
+
+      const scrollProgress = (rect.top + rect.height / 2) / winH;
+      const speed = 0.35;
+      const yOffset = (scrollProgress - 0.5) * speed * 100;
+      section.style.backgroundPositionY = 'calc(50% + ' + yOffset + 'px)';
+    });
+    requestAnimationFrame(updateParallax);
+  }
+  requestAnimationFrame(updateParallax);
+});
+
 // === BACK TO TOP ===
 document.addEventListener('DOMContentLoaded', function () {
   const btn = document.getElementById('backToTop');

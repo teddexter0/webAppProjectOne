@@ -62,40 +62,31 @@ h3, h4, h5 {
   background-size: cover;
   background-position: center;
   opacity: 0;
-  animation: heroFade 24s infinite;
+  transition: opacity 1s ease;
+}
+
+.hero-slide.active {
+  opacity: 1;
 }
 
 .hero-slide-1 {
   background-image: url('https://images.pexels.com/photos/247431/pexels-photo-247431.jpeg?w=1600');
-  animation-delay: 0s;
 }
 
 .hero-slide-2 {
   background-image: url('https://images.pexels.com/photos/631292/pexels-photo-631292.jpeg?w=1600');
-  animation-delay: 6s;
 }
 
 .hero-slide-3 {
   background-image: url('https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg?w=1600');
-  animation-delay: 12s;
 }
 
 .hero-slide-4 {
   background-image: url('https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?w=1600');
-  animation-delay: 18s;
-}
-
-@keyframes heroFade {
-  0% { opacity: 0; }
-  4% { opacity: 1; }
-  21% { opacity: 1; }
-  25% { opacity: 0; }
-  100% { opacity: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-slide { animation: none; opacity: 0; }
-  .hero-slide-1 { opacity: 1; }
+  .hero-slide { transition: none; }
 }
 
 .hero-overlay {
@@ -143,6 +134,79 @@ h3, h4, h5 {
 .btn-hero:hover {
   background: var(--lv-white);
   color: var(--lv-ink);
+}
+
+/* === HERO SLIDESHOW CONTROLS === */
+.hero-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(10, 22, 40, 0.5);
+  color: var(--lv-white);
+  border: none;
+  font-size: 2.5rem;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  border-radius: 50%;
+  line-height: 1;
+}
+
+.hero-arrow:hover {
+  background: var(--lv-gold);
+  color: var(--lv-ink);
+}
+
+.hero-arrow-prev {
+  left: 20px;
+}
+
+.hero-arrow-next {
+  right: 20px;
+}
+
+.hero-dots {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  gap: 10px;
+}
+
+.hero-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--lv-white);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  padding: 0;
+}
+
+.hero-dot.active {
+  background: var(--lv-gold);
+  border-color: var(--lv-gold);
+  transform: scale(1.2);
+}
+
+.hero-dot:hover {
+  background: rgba(212, 162, 76, 0.5);
+  border-color: var(--lv-gold);
+}
+
+@media (max-width: 576px) {
+  .hero-arrow { width: 36px; height: 36px; font-size: 1.5rem; }
+  .hero-arrow-prev { left: 10px; }
+  .hero-arrow-next { right: 10px; }
+  .hero-dot { width: 10px; height: 10px; }
 }
 
 /* === NAVBAR === */
@@ -224,6 +288,60 @@ section {
   padding-bottom: 4rem;
 }
 
+/* === PARALLAX SECTIONS === */
+.parallax-section {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+.parallax-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10,22,40,0.4) 0%, rgba(10,22,40,0.7) 100%);
+}
+
+.parallax-content {
+  position: relative;
+  z-index: 1;
+  color: var(--lv-white);
+  max-width: 700px;
+  padding: 0 2rem;
+}
+
+.parallax-content h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--lv-white);
+  margin-bottom: 1rem;
+}
+
+.parallax-content p {
+  font-size: 1.15rem;
+  color: var(--lv-cream);
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .parallax-section {
+    background-attachment: scroll;
+    min-height: 50vh;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .parallax-section {
+    background-attachment: scroll;
+  }
+}
+
 /* === FOOTER === */
 footer {
   background-color: var(--lv-ink) !important;
@@ -231,6 +349,36 @@ footer {
 
 footer a:hover {
   color: var(--lv-gold) !important;
+}
+
+.footer-social {
+  margin-top: 0.75rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--lv-charcoal);
+  color: var(--lv-cream);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-link:hover {
+  border-color: var(--lv-gold);
+  color: var(--lv-gold);
+  transform: translateY(-2px);
+}
+
+body.dark-mode .social-link {
+  border-color: var(--lv-cream);
 }
 
 /* === SCROLL REVEAL === */
