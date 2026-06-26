@@ -390,6 +390,43 @@ body.dark-mode .social-link {
   border-color: var(--lv-cream);
 }
 
+/* === RESPONSIVE IMAGES === */
+.gallery-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.hotel-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .gallery-img { height: 200px; }
+  .hotel-img { height: 180px; }
+}
+
+@media (max-width: 576px) {
+  .gallery-img { height: 180px; }
+  .hotel-img { height: 160px; }
+  section { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+  footer .container { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+}
+
+@media (max-width: 375px) {
+  .gallery-img { height: 160px; }
+  .hotel-img { height: 140px; }
+  section { padding-top: 2rem; padding-bottom: 2rem; }
+  .hero-full { min-height: 60vh; }
+  .hero-content { padding: 0 1rem; }
+}
+
+@media (min-width: 1024px) {
+  .card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+}
+
 /* === SCROLL REVEAL === */
 .reveal-on-scroll {
   opacity: 0;
