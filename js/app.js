@@ -35,7 +35,9 @@ document.addEventListener('DOMContentLoaded', function () {
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending...';
       setTimeout(function () {
-        form.innerHTML = '<div class="alert alert-success"><strong>Thank you!</strong> Your enquiry has been received. A LuxeVoyage specialist will contact you within 24 hours.</div>';
+        form.querySelectorAll('.mb-3, button:not([type=button])').forEach(function (el) { el.style.display = 'none'; });
+        const feedback = document.getElementById('formFeedback');
+        feedback.innerHTML = '<div class="alert alert-success"><strong>Thank you!</strong> Your enquiry has been received. A LuxeVoyage specialist will contact you within 24 hours.</div>';
       }, 800);
     }
   });
@@ -67,8 +69,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   filterBtns.forEach(function (btn) {
     btn.addEventListener('click', function () {
-      filterBtns.forEach(function (b) { b.classList.remove('active'); });
+      filterBtns.forEach(function (b) { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
       btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
 
       const filter = btn.getAttribute('data-filter');
 
