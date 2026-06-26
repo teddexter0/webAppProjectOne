@@ -427,6 +427,42 @@ body.dark-mode .social-link {
   .card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
 }
 
+/* === GALLERY HOVER ZOOM === */
+.gallery-item .card {
+  overflow: hidden;
+}
+
+.gallery-img {
+  transition: transform 0.4s ease;
+}
+
+.gallery-item:hover .gallery-img {
+  transform: scale(1.08);
+}
+
+/* === FORM FEEDBACK === */
+#formFeedback .alert-success {
+  background-color: var(--lv-cream);
+  border: 1px solid var(--lv-gold);
+  color: var(--lv-ink);
+  border-radius: 4px;
+}
+
+/* === UX POLISH === */
+.btn {
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn:hover {
+  box-shadow: 0 2px 8px rgba(10, 22, 40, 0.15);
+}
+
+.card {
+  border: 1px solid #e8e8e4;
+  border-radius: 4px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
 /* === SCROLL REVEAL === */
 .reveal-on-scroll {
   opacity: 0;
